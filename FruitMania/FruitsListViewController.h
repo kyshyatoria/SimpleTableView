@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  FruitsListViewController.h
 //  FruitMania
 //
 //  Created by Kanchan Yadav on 17/06/16.
@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
-
+@interface FruitsListViewController : UIViewController
 
 @end
-
