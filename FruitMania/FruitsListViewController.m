@@ -11,40 +11,47 @@
 @interface FruitsListViewController ()<UITableViewDelegate, UITableViewDataSource>   //class extension
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property NSArray *fruitsList;  //by default strong, atomic,
-@property NSMutableDictionary *sortedFruitsdictionary;
+@property NSDictionary *sortedFruitsdictionary;
 
 @end
 
-@implementation FruitsListViewController
+@implementation FruitsListViewController{
+
+    NSInteger previousSection;
+    UIColor *previousCellColor;
+}
 
 //declared static so that compiler uses only copy of this string everytime cellForRowAtIndexPath method is called.
 static NSString *cellIdentifier = @"fruit cell identifier";
-int num = 423;
-
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    _fruitsList = @[@"Apple", @"Mango", @"Peach", @"BlackBerry", @"Pomogranet",@"Orange", @"Guava",@"Banana",@"lime",@"Kiwi", @"Pear", @"Strawberry",@"PassionFruit",@"Sun Melon", @"Water Melon"];
+    _fruitsList = @[@"Apple",@"Acai",@"Ackee",@"Cantaloupes",@"Chocolate-Fruit",@"Cherries",@"Cranberries",@"Cucumbers",@"Currants", @"Peach", @"BlackBerry", @"Pomogranet",@"Orange",@"Banana",@"Kiwi", @"Pear", @"Strawberry",@"Apricots",@"Avocado",@"PassionFruit",@"Sun Melon"];
+    _sortedFruitsdictionary = [self sortFruitsArrayAlphabatically:self.fruitsList];
     
     [_tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:cellIdentifier];
 
 }
 
+#pragma mark - Table view Delegate method.
 /*
  Descritiption: returns no. of sections in table view.
  */
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
 
-    return 1;
+    return [_sortedFruitsdictionary count];
 }
 
 /*
  Description: returns no. of rows in a given section. @required method of UITableViewDataSource protocol.
  */
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-
-    NSUInteger fruitsCount = [self.fruitsList count];
-    return fruitsCount;
+    
+    NSArray *allKeys = [[_sortedFruitsdictionary allKeys] sortedArrayUsingSelector:@selector(caseInsensitiveCompare:)];
+    NSString *currentKey = [allKeys objectAtIndex:section];
+    NSInteger rowsInSection = [[_sortedFruitsdictionary objectForKey:currentKey]count ];
+    
+    return rowsInSection;
 }
 
 /*
@@ -52,11 +59,90 @@ int num = 423;
  */
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
 
-    UITableViewCell *fruitsCell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
     
-    NSString *fruitName = [_fruitsList objectAtIndex:indexPath.row];
-    [fruitsCell.textLabel setText:fruitName];
+    UITableViewCell *fruitsCell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
+//    fruitsCell = nil;
+    NSArray *allKeys  = [[_sortedFruitsdictionary allKeys] sortedArrayUsingSelector:@selector(caseInsensitiveCompare:)];
+    NSString *currentKey = [allKeys objectAtIndex:indexPath.section];
+    NSArray *fruitsInGivenSection = [_sortedFruitsdictionary objectForKey:currentKey];
+    
+    [fruitsCell.textLabel setText:[fruitsInGivenSection objectAtIndex:indexPath.row]];
+    [fruitsCell.textLabel setFont:[UIFont fontWithName:@"Georgia" size:16.0]];
+     
+    [fruitsCell setBackgroundColor:[UIColor greenColor]];
+    
+    if(previousSection == indexPath.section && previousCellColor){
+        
+        [fruitsCell setBackgroundColor:previousCellColor];
+    }else{
+        
+        previousCellColor = [self generateRandomColorForSectionBackground];
+        [fruitsCell setBackgroundColor:previousCellColor];
+    }
+    previousSection = indexPath.section;
+    
     return fruitsCell;
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+
+    return 2.0f; //0.0 doesn't work :(
+}
+
+
+-(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
+
+    return 0.0000001;
+}
+
+
+#pragma mark - Helper Methods
+/*
+ Descritpion: used to generate random color.
+ */
+-(UIColor *)generateRandomColorForSectionBackground{
+
+    CGFloat hue = ( arc4random() % 256 / 256.0 );  //  0.0 to 1.0
+    CGFloat saturation = ( arc4random() % 128 / 256.0 ) + 0.2;  //  0.5 to 1.0, away from white
+    CGFloat brightness = ( arc4random() % 128 / 256.0 ) + 0.8;  //  0.5 to 1.0, away from black
+    UIColor *color = [UIColor colorWithHue:hue saturation:saturation brightness:brightness alpha:1];
+    
+    return color;
+}
+
+/*
+ Description: it is used to sort fruits alphabatically.
+ */
+-(NSDictionary *)sortFruitsArrayAlphabatically:(NSArray *)fruitsArray{
+    
+    NSMutableDictionary *sortedFruitsdict = [[NSMutableDictionary alloc] init];
+    
+    for(NSString *fruit in fruitsArray){
+        
+        NSString *firstLetter = [fruit substringToIndex:1];
+        NSMutableArray *sortedFruitsSubArray;
+        if([sortedFruitsdict objectForKey:firstLetter]){
+            
+            sortedFruitsSubArray = [sortedFruitsdict objectForKey:firstLetter];
+            [sortedFruitsSubArray addObject:fruit];
+            
+        }else{
+            
+            sortedFruitsSubArray= [[NSMutableArray alloc] init];
+            [sortedFruitsSubArray addObject:fruit];
+        }
+        [sortedFruitsdict setObject:sortedFruitsSubArray forKey:firstLetter];
+    }
+    
+    //now sort the keys in dictionary.
+    NSArray *allKeys = [sortedFruitsdict allKeys];
+    for(NSString *fruitFirstLetter in allKeys){
+        
+        [[sortedFruitsdict objectForKey:fruitFirstLetter] sortUsingSelector:@selector(caseInsensitiveCompare:)];
+        
+    }
+    
+    return sortedFruitsdict;;
 }
 
 /*
