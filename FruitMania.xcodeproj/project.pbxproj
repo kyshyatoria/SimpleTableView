@@ -9,12 +9,12 @@
 /* Begin PBXBuildFile section */
 		B11FF1451D14209700CF5DDA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B11FF1441D14209700CF5DDA /* main.m */; };
 		B11FF1481D14209700CF5DDA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B11FF1471D14209700CF5DDA /* AppDelegate.m */; };
-		B11FF14B1D14209700CF5DDA /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B11FF14A1D14209700CF5DDA /* ViewController.m */; };
 		B11FF14E1D14209700CF5DDA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B11FF14C1D14209700CF5DDA /* Main.storyboard */; };
 		B11FF1501D14209700CF5DDA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B11FF14F1D14209700CF5DDA /* Assets.xcassets */; };
 		B11FF1531D14209700CF5DDA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B11FF1511D14209700CF5DDA /* LaunchScreen.storyboard */; };
 		B11FF15E1D14209700CF5DDA /* FruitManiaTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B11FF15D1D14209700CF5DDA /* FruitManiaTests.m */; };
 		B11FF1691D14209700CF5DDA /* FruitManiaUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = B11FF1681D14209700CF5DDA /* FruitManiaUITests.m */; };
+		B11FF17B1D14224100CF5DDA /* FruitsListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B11FF17A1D14224100CF5DDA /* FruitsListViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,8 +39,6 @@
 		B11FF1441D14209700CF5DDA /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		B11FF1461D14209700CF5DDA /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		B11FF1471D14209700CF5DDA /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		B11FF1491D14209700CF5DDA /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		B11FF14A1D14209700CF5DDA /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		B11FF14D1D14209700CF5DDA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B11FF14F1D14209700CF5DDA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B11FF1521D14209700CF5DDA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -51,6 +49,8 @@
 		B11FF1641D14209700CF5DDA /* FruitManiaUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FruitManiaUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B11FF1681D14209700CF5DDA /* FruitManiaUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FruitManiaUITests.m; sourceTree = "<group>"; };
 		B11FF16A1D14209700CF5DDA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B11FF1791D14224100CF5DDA /* FruitsListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FruitsListViewController.h; sourceTree = "<group>"; };
+		B11FF17A1D14224100CF5DDA /* FruitsListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FruitsListViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,13 +103,13 @@
 			children = (
 				B11FF1461D14209700CF5DDA /* AppDelegate.h */,
 				B11FF1471D14209700CF5DDA /* AppDelegate.m */,
-				B11FF1491D14209700CF5DDA /* ViewController.h */,
-				B11FF14A1D14209700CF5DDA /* ViewController.m */,
 				B11FF14C1D14209700CF5DDA /* Main.storyboard */,
 				B11FF14F1D14209700CF5DDA /* Assets.xcassets */,
 				B11FF1511D14209700CF5DDA /* LaunchScreen.storyboard */,
 				B11FF1541D14209700CF5DDA /* Info.plist */,
 				B11FF1431D14209700CF5DDA /* Supporting Files */,
+				B11FF1791D14224100CF5DDA /* FruitsListViewController.h */,
+				B11FF17A1D14224100CF5DDA /* FruitsListViewController.m */,
 			);
 			path = FruitMania;
 			sourceTree = "<group>";
@@ -270,8 +270,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B11FF14B1D14209700CF5DDA /* ViewController.m in Sources */,
 				B11FF1481D14209700CF5DDA /* AppDelegate.m in Sources */,
+				B11FF17B1D14224100CF5DDA /* FruitsListViewController.m in Sources */,
 				B11FF1451D14209700CF5DDA /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
