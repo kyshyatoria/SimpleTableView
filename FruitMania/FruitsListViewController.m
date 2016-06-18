@@ -58,10 +58,8 @@ static NSString *cellIdentifier = @"fruit cell identifier";
  Description: @required method of UiTableViewDataSource protocol, app will crash if this is not implemented. returns cell to be used for a given row of a given section. this info is extracted fron indexPath.
  */
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-
     
     UITableViewCell *fruitsCell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
-//    fruitsCell = nil;
     NSArray *allKeys  = [[_sortedFruitsdictionary allKeys] sortedArrayUsingSelector:@selector(caseInsensitiveCompare:)];
     NSString *currentKey = [allKeys objectAtIndex:indexPath.section];
     NSArray *fruitsInGivenSection = [_sortedFruitsdictionary objectForKey:currentKey];

@@ -18,30 +18,33 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="e87-x8-d2p">
-                                <rect key="frame" x="0.0" y="70" width="320" height="340"/>
+                                <rect key="frame" x="0.0" y="110" width="320" height="370"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="dataSource" destination="BYZ-38-t0r" id="s2V-62-cbG"/>
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="21k-RG-jkj"/>
                                 </connections>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a2f-s7-KR8">
-                                <rect key="frame" x="0.0" y="410" width="320" height="70"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Here i have created a table using UITableView in UIViewController" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b6p-9N-a89">
+                                <rect key="frame" x="0.0" y="20" width="320" height="80"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="70" id="vmU-MI-ecU"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="80" id="ai6-P8-GTI"/>
+                                    <constraint firstAttribute="height" constant="80" id="eV3-Yl-mCW"/>
                                 </constraints>
-                                <state key="normal" title="Button"/>
-                            </button>
+                                <fontDescription key="fontDescription" name="Georgia" family="Georgia" pointSize="15"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="a2f-s7-KR8" secondAttribute="bottom" id="8bL-o6-4mv"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="e87-x8-d2p" secondAttribute="bottom" id="2ce-Qf-jgP"/>
                             <constraint firstAttribute="trailing" secondItem="e87-x8-d2p" secondAttribute="trailing" id="CE2-nv-ZOw"/>
                             <constraint firstItem="e87-x8-d2p" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Exx-vR-t7D"/>
-                            <constraint firstItem="a2f-s7-KR8" firstAttribute="top" secondItem="e87-x8-d2p" secondAttribute="bottom" id="Maz-1O-xzs"/>
-                            <constraint firstItem="e87-x8-d2p" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="50" id="OB2-Ag-FQy"/>
-                            <constraint firstAttribute="trailing" secondItem="a2f-s7-KR8" secondAttribute="trailing" id="ULi-OV-G4t"/>
-                            <constraint firstItem="a2f-s7-KR8" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="jt1-s6-6F1"/>
+                            <constraint firstItem="b6p-9N-a89" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="eGB-ZD-bSx"/>
+                            <constraint firstItem="b6p-9N-a89" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="qFp-FP-zbu"/>
+                            <constraint firstAttribute="trailing" secondItem="b6p-9N-a89" secondAttribute="trailing" id="rOI-gn-nkO"/>
+                            <constraint firstItem="e87-x8-d2p" firstAttribute="top" secondItem="b6p-9N-a89" secondAttribute="bottom" constant="10" id="xHg-02-uHI"/>
                         </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
