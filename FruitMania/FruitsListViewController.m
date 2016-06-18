@@ -35,7 +35,7 @@ static NSString *cellIdentifier = @"fruit cell identifier";
     _fruitsList = @[@"Apple",@"Acai",@"Ackee",@"Cantaloupes",@"Chocolate-Fruit",@"Cherries",@"Cranberries",@"Cucumbers",@"Currants", @"Peach", @"BlackBerry", @"Pomogranet",@"Orange",@"Banana",@"Kiwi", @"Pear", @"Strawberry",@"Apricots",@"Avocado",@"PassionFruit",@"Sun Melon"];
     _sortedFruitsdictionary = [self sortFruitsArrayAlphabatically:self.fruitsList];
     
-    [_tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:cellIdentifier];
+   // [_tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:cellIdentifier];
 
 }
 
@@ -66,14 +66,22 @@ static NSString *cellIdentifier = @"fruit cell identifier";
  */
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    UITableViewCell *fruitsCell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
+    UITableViewCell *fruitsCell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+//    UITableViewCell *fruitsCell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
+    
+    if(fruitsCell == nil){
+        
+        fruitsCell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:cellIdentifier];
+        
+    }
     NSArray *allKeys  = [[_sortedFruitsdictionary allKeys] sortedArrayUsingSelector:@selector(caseInsensitiveCompare:)];
     NSString *currentKey = [allKeys objectAtIndex:indexPath.section];
     NSArray *fruitsInGivenSection = [_sortedFruitsdictionary objectForKey:currentKey];
     
     [fruitsCell.textLabel setText:[fruitsInGivenSection objectAtIndex:indexPath.row]];
     [fruitsCell.textLabel setFont:[UIFont fontWithName:@"Georgia" size:16.0]];
-     
+    [fruitsCell.detailTextLabel setText:@"blahbhjahjf"];
+    [fruitsCell.imageView setImage:[UIImage imageNamed:@"Apple"]];
     [fruitsCell setBackgroundColor:[UIColor greenColor]];
     
     if(previousSection == indexPath.section && previousCellColor){
@@ -91,7 +99,7 @@ static NSString *cellIdentifier = @"fruit cell identifier";
 
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
 
-    return 2.0f; //0.0 doesn't work :(
+    return 5.0f; //0.0 doesn't work :(
 }
 
 
@@ -110,7 +118,7 @@ static NSString *cellIdentifier = @"fruit cell identifier";
     CGFloat hue = ( arc4random() % 256 / 256.0 );  //  0.0 to 1.0
     CGFloat saturation = ( arc4random() % 128 / 256.0 ) + 0.2;  //  0.5 to 1.0, away from white
     CGFloat brightness = ( arc4random() % 128 / 256.0 ) + 0.8;  //  0.5 to 1.0, away from black
-    UIColor *color = [UIColor colorWithHue:hue saturation:saturation brightness:brightness alpha:1];
+    UIColor *color = [UIColor colorWithHue:hue saturation:saturation brightness:brightness alpha:0.2];
     
     return color;
 }
