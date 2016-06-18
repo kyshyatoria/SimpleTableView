@@ -6,6 +6,12 @@
 //  Copyright © 2016 Kanchan Yadav. All rights reserved.
 //
 
+
+/***
+ 
+ there is one issue with the color: ideally what i have tried to do is all the fuits with the same first letter should have same color. Initially when table view is created
+ 
+ **/
 #import "FruitsListViewController.h"
 
 @interface FruitsListViewController ()<UITableViewDelegate, UITableViewDataSource>   //class extension
@@ -53,6 +59,7 @@ static NSString *cellIdentifier = @"fruit cell identifier";
     
     return rowsInSection;
 }
+
 
 /*
  Description: @required method of UiTableViewDataSource protocol, app will crash if this is not implemented. returns cell to be used for a given row of a given section. this info is extracted fron indexPath.
@@ -141,6 +148,11 @@ static NSString *cellIdentifier = @"fruit cell identifier";
     }
     
     return sortedFruitsdict;;
+}
+
+-(void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView{
+
+    [_tableView reloadData];
 }
 
 /*

@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="aku-IM-b3i">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Fruits List View Controller-->
@@ -56,5 +57,77 @@
             </objects>
             <point key="canvasLocation" x="299" y="387"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="lml-3T-3WX">
+            <objects>
+                <viewController id="aku-IM-b3i" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="uSZ-fJ-GwJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="edx-5Q-Ja4"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Xc3-kd-xwQ">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Mr-mw-Qtd">
+                                <rect key="frame" x="67" y="143" width="218" height="254"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="218" id="YAM-0s-Xe5"/>
+                                    <constraint firstAttribute="height" constant="254" id="YPO-p4-0eg"/>
+                                </constraints>
+                                <state key="normal" title="Button" image="mnionImage"/>
+                                <connections>
+                                    <segue destination="BYZ-38-t0r" kind="presentation" id="fT7-Tu-acd"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Click Minion" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VEu-cH-sw5">
+                                <rect key="frame" x="35" y="90" width="250" height="40"/>
+                                <color key="backgroundColor" red="0.41360754490440249" green="0.95045971870422363" blue="0.23158339766410113" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="250" id="K1U-uR-VBE"/>
+                                    <constraint firstAttribute="height" constant="40" id="Z0c-WO-2bE"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Georgia" family="Georgia" pointSize="23"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="5Mr-mw-Qtd" firstAttribute="top" secondItem="VEu-cH-sw5" secondAttribute="bottom" constant="13" id="IGC-qc-jfB"/>
+                            <constraint firstItem="VEu-cH-sw5" firstAttribute="top" secondItem="uSZ-fJ-GwJ" secondAttribute="bottom" constant="25" id="Ma4-DO-Y1x"/>
+                            <constraint firstItem="5Mr-mw-Qtd" firstAttribute="centerX" secondItem="Xc3-kd-xwQ" secondAttribute="centerX" constant="16" id="PmX-S0-5Xo"/>
+                            <constraint firstItem="5Mr-mw-Qtd" firstAttribute="leading" secondItem="Xc3-kd-xwQ" secondAttribute="leadingMargin" constant="50" id="SkK-3i-pcy"/>
+                            <constraint firstItem="VEu-cH-sw5" firstAttribute="centerY" secondItem="Xc3-kd-xwQ" secondAttribute="centerY" constant="-184.5" id="UJ8-wU-5eQ"/>
+                            <constraint firstItem="5Mr-mw-Qtd" firstAttribute="centerY" secondItem="Xc3-kd-xwQ" secondAttribute="centerY" id="V3w-D6-Rif"/>
+                            <constraint firstItem="VEu-cH-sw5" firstAttribute="centerX" secondItem="Xc3-kd-xwQ" secondAttribute="centerX" id="XaM-v2-0Mc"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="5Mr-mw-Qtd" secondAttribute="trailing" constant="0.5" id="bon-vu-YzY"/>
+                            <constraint firstItem="5Mr-mw-Qtd" firstAttribute="centerX" secondItem="Xc3-kd-xwQ" secondAttribute="centerX" id="fDA-M8-cUm"/>
+                            <constraint firstItem="VEu-cH-sw5" firstAttribute="leading" secondItem="Xc3-kd-xwQ" secondAttribute="leadingMargin" constant="40" id="g2i-FR-5lG"/>
+                            <constraint firstItem="VEu-cH-sw5" firstAttribute="centerY" secondItem="Xc3-kd-xwQ" secondAttribute="centerY" id="kPb-Hf-zyk"/>
+                            <constraint firstItem="VEu-cH-sw5" firstAttribute="top" secondItem="uSZ-fJ-GwJ" secondAttribute="bottom" constant="70" id="kc4-2s-8Rf"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="Ma4-DO-Y1x"/>
+                                <exclude reference="UJ8-wU-5eQ"/>
+                                <exclude reference="g2i-FR-5lG"/>
+                                <exclude reference="kPb-Hf-zyk"/>
+                                <exclude reference="SkK-3i-pcy"/>
+                                <exclude reference="V3w-D6-Rif"/>
+                                <exclude reference="bon-vu-YzY"/>
+                                <exclude reference="fDA-M8-cUm"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fF5-wU-Lcw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-93" y="387"/>
+        </scene>
     </scenes>
+    <resources>
+        <image name="mnionImage" width="236" height="316"/>
+    </resources>
 </document>

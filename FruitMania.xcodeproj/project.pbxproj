@@ -15,6 +15,7 @@
 		B11FF15E1D14209700CF5DDA /* FruitManiaTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B11FF15D1D14209700CF5DDA /* FruitManiaTests.m */; };
 		B11FF1691D14209700CF5DDA /* FruitManiaUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = B11FF1681D14209700CF5DDA /* FruitManiaUITests.m */; };
 		B11FF17B1D14224100CF5DDA /* FruitsListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B11FF17A1D14224100CF5DDA /* FruitsListViewController.m */; };
+		B11FF17E1D1511A400CF5DDA /* MinionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B11FF17D1D1511A400CF5DDA /* MinionViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,8 @@
 		B11FF16A1D14209700CF5DDA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B11FF1791D14224100CF5DDA /* FruitsListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FruitsListViewController.h; sourceTree = "<group>"; };
 		B11FF17A1D14224100CF5DDA /* FruitsListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FruitsListViewController.m; sourceTree = "<group>"; };
+		B11FF17C1D1511A400CF5DDA /* MinionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MinionViewController.h; sourceTree = "<group>"; };
+		B11FF17D1D1511A400CF5DDA /* MinionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MinionViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +113,8 @@
 				B11FF1431D14209700CF5DDA /* Supporting Files */,
 				B11FF1791D14224100CF5DDA /* FruitsListViewController.h */,
 				B11FF17A1D14224100CF5DDA /* FruitsListViewController.m */,
+				B11FF17C1D1511A400CF5DDA /* MinionViewController.h */,
+				B11FF17D1D1511A400CF5DDA /* MinionViewController.m */,
 			);
 			path = FruitMania;
 			sourceTree = "<group>";
@@ -272,6 +277,7 @@
 			files = (
 				B11FF1481D14209700CF5DDA /* AppDelegate.m in Sources */,
 				B11FF17B1D14224100CF5DDA /* FruitsListViewController.m in Sources */,
+				B11FF17E1D1511A400CF5DDA /* MinionViewController.m in Sources */,
 				B11FF1451D14209700CF5DDA /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
